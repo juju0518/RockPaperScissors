@@ -1,0 +1,25 @@
+<h2>Play Rock-Paper-Scissors</h2>
+<p>Welcome, <%= @user.username %>!</p>
+
+<p>Choose your move:</p>
+
+<%= form_with url: user_play_path(@user), method: :post, local: true do %>
+  <div style="margin-bottom: 20px;">
+    <div style="display: inline-block; text-align: center; margin: 10px;">
+      <%= image_tag("rock.png", width: "150", alt: "Rock") %><br>
+      <%= submit_tag "Rock", name: "move", value: "rock" %>
+    </div>
+
+    <div style="display: inline-block; text-align: center; margin: 10px;">
+      <%= image_tag("paper.png", width: "150", alt: "Paper") %><br>
+      <%= submit_tag "Paper", name: "move", value: "paper" %>
+    </div>
+
+    <div style="display: inline-block; text-align: center; margin: 10px;">
+      <%= image_tag("scissors.png", width: "150", alt: "Scissors") %><br>
+      <%= submit_tag "Scissors", name: "move", value: "scissors" %>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to "Back", users_path, class: "button" %>

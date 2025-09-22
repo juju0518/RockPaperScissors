@@ -1,0 +1,13 @@
+<h1>Welcome to Rock-Paper-Scissors!</h1>
+<%= image_tag "welcome_image.png", width: "500", alt: "Welcome" %>
+
+
+<h2>Leaderboard:</h2>
+<ol>
+  <% User.order(wins: :desc).limit(5).each do |user| %>
+    <li><%= "#{user.username} - #{user.wins} wins" %></li>
+  <% end %>
+</ol>
+
+<%= link_to "Create New User", new_user_path, class: "button" %><br>
+<%= link_to "Play as Existing User", users_path, class: "button" %>

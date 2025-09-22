@@ -1,0 +1,8 @@
+<h2>Game Result</h2>
+<%= image_tag "result.png", width: "500", alt: "Result" %>
+<p>Your move: <%= @game.user_move %></p>
+<p>Computer's move: <%= @game.computer_move %></p>
+<p>Result: <%= @game.result.capitalize %></p>
+
+<%= link_to "Play Again", user_play_path(@game.user), class: "button" %>
+<%= link_to "Back to Home", root_path, class: "button" %>

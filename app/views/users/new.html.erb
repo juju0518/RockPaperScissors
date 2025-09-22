@@ -1,0 +1,16 @@
+<h2>Create New User</h2>
+<%= image_tag "rules.png", width: "500", alt: "Rules" %>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h3> Username has already been taken </h3>
+  </div>
+<% end %>
+
+<%= form_with model: @user, local: true do |f| %>
+  <%= f.label :username %><br>
+  <%= f.text_field :username %><br>
+  <%= f.submit "Create" %>
+<% end %>
+
+<%= link_to "Back", root_path, class: "button" %>
